@@ -16,7 +16,7 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.1.4",
     "express": "^4.17.3",
     "full-stack-react": "file:..",
     "jsonwebtoken": "^9.0.0",

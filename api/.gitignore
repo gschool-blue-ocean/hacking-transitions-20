@@ -2,3 +2,4 @@
 /client/src/dist
 .env
 .DS_store
+request.http
