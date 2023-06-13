@@ -1,20 +1,21 @@
 import React, {useContext}  from "react";
-import LeftColumn from "../LeftColumn/LeftColumn.jsx";
+import CohortNav from "../CohortNav/CohortNav.jsx";
 import Footer from "../Footer/Footer.jsx";
-import StudentDetail from '../StudentRender/StudentDetails.jsx';
+import StudentDetail from '../StudentDetails/StudentDetails.jsx';
 import Header from "../Header/Header.jsx";
-import CohortDetails from "../CohortRender/CohortDetails.jsx";
-import LeftColumnContext from "../../context/LeftColumnContext";
-import RightColumn from "../RightColumn/RightColumn.jsx";
+import CohortDetails from "../CohortDetails/CohortDetails.jsx";
+import CohortContext from "../../context/CohortContext";
+import Appointments from "../Appointments/Appointments.jsx";
 import Register from "../Register/Register.jsx";
 import Login from "../Login/Login.jsx";
 import { AuthProvider } from "react-auth-kit";
 import { UserProvider, useUser } from "../UserProvider.jsx";
-import "../../styles/App.css";
+import "./App.css";
+import Calendar from "../Calendar/Calendar.jsx";
 
 const App = () => {
 
-  const { cohortClicked, renderStudent } = useContext(LeftColumnContext);
+  const { cohortClicked, renderStudent } = useContext(CohortContext);
 
   return (
     <UserProvider>
@@ -27,7 +28,7 @@ const App = () => {
 
 const AuthContent = () => {
   const { isAuthenticated } = useUser(); // Get the new isAuthenticated variable from the context
-  const { cohortClicked, renderStudent } = useContext(LeftColumnContext);
+  const { cohortClicked, renderStudent } = useContext(CohortContext);
   return (
     <>
       <Header />
@@ -39,10 +40,11 @@ const AuthContent = () => {
       )}
       {isAuthenticated && (
         <>
-          <LeftColumn />
+          <CohortNav />
+          <Calendar />
           {renderStudent ? <StudentDetail />: ''}
           {cohortClicked !== "" ? <CohortDetails />  : <></>}
-          {cohortClicked !== "" ? <RightColumn />  : <></>}
+          {cohortClicked !== "" ? <Appointments />  : <></>}
           <Footer />
         </>
       )}
