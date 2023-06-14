@@ -7,6 +7,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 const db = new pg.Pool({ connectionString: process.env.DATABASE_URL });
 
+
 const app = express();
 
 app.use(express.json());
@@ -199,5 +200,7 @@ app.use((err, req, res, next) => {
 });
 // Serve the static assets AFTER the routes
 app.use(express.static("../client/src/dist"))
+
+
 
 export default app;

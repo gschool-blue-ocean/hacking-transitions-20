@@ -12,6 +12,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use(express.static('public'));
+// const PORT = process.env.PORT;
+
 app.get("/api/cohorts", async (req, res, next) => {
   const result = await db.query("SELECT cohorts.*, instructors.lastname AS instructor_id FROM cohorts INNER JOIN instructors ON cohorts.instructor_id = instructors.id").catch(next);
   res.send(result.rows);
@@ -186,5 +189,9 @@ app.use((err, req, res, next) => {
 });
 // Serve the static assets AFTER the routes
 app.use(express.static("../client/src/dist"))
+
+// app.listen(PORT, () => {
+//   console.log(`Listening on port ${PORT}`);
+// });
 
 export default app;

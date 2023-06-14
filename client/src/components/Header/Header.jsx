@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import './Header.css'
+import './Header.css';
+import Logo from './logo';
+
+// import Login from './Login/Login.jsx';
 
 export default function Header(){
     const [ email, setEmail ] = useState("")
@@ -13,8 +16,10 @@ export default function Header(){
     return(
         <span id="header">
             <span id="home-container">
-                <a href="https://www.galvanize.com/">
-                    <img src="https://www.galvanize.com/wp-content/uploads/2022/11/galvanize_logo_small-scale_full-color_dark-background.png" alt="Galvanize Logo" />
+                <a href="https://www.galvanize.com/">http
+                    <img src="www.galvanize.com/wp-content/uploads/2022/11/galvanize_logo_small-scale_full-color_dark-background.png" alt="Galvanize Logo" />
+                    <img className = "logoImg" src = "http://localhost:3000/client/src/components/Header/logo.png" alt = "Logo" title = "Galvanize logo"/> 
+                    <Logo className="logoImg" />
                 </a>
             </span>
             <span id="title-container">
