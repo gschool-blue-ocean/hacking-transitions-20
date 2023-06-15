@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './Header.css';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import { useUser } from "../UserProvider.jsx";
 
 // import Login from './Login/Login.jsx';
